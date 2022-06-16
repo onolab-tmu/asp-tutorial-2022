@@ -39,5 +39,5 @@ for i  in range(M+1, y.size - M):
 plt.subplot(2, 1, 2)
 plt.plot(t, s)
 plt.plot(t, y)
-plt.xlim(0, 0.03) #軸範囲
+plt.xlim(0, 0.03)
 plt.show()
