@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 fs = 16000
 sec = 3
-t = np.linspace(0., sec, int(fs * sec))
+t = np.linspace(0., sec, fs * sec)
 
 whitenoise = np.random.rand(fs * sec) * 2 - 1
 
