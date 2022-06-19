@@ -2,8 +2,8 @@ import numpy as np
 from scipy.io.wavfile import write, read
 from scipy import signal
 
-readfilename = "./knishida/chapter01/02_out.wav"
-writefilename = "./knishida/chapter01/03_out.wav"
+readfilename = "02_out.wav"
+writefilename = "03_out.wav"
 
 fs, data = read(readfilename)
 

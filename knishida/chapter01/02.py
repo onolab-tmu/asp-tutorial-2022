@@ -9,7 +9,7 @@ fs = 16000
 t = np.arange(0, sec, 1 / fs)
 y = A * np.sin(2 * np.pi * f * t)
 
-writefilename = "./knishida/chapter01/02_out.wav"
+writefilename = "02_out.wav"
 
 y = y * 100
 
