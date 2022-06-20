@@ -21,7 +21,7 @@
 
 # 第 2 章: スペクトル解析
 
-1. $N$ 点の信号 $x[n] \, (n = 0, \dots , N-1)$ の離散フーリエ変換 (DFT) $$X[k] = \sum _{n=0} ^{N-1} x[n] \exp \left( \frac{-2\pi k n}{N} \right) \, (k = 0, \dots, N-1)$$ とその逆変換(IDFT)$$x[n] = \frac{1}{N} \sum _{k=0} ^{N-1} X[k] \exp \left( \frac{2\pi k n}{N} \right) \, (n = 0, \dots, N-1)$$を計算する関数を実装せよ．
+1. $N$ 点の信号 $x[n] \, (n = 0, \dots , N-1)$ の離散フーリエ変換 (DFT) $$X[k] = \sum _{n=0} ^{N-1} x[n] \exp \left( -j \frac{2\pi k n}{N} \right) \, (k = 0, \dots, N-1)$$ とその逆変換(IDFT)$$x[n] = \frac{1}{N} \sum _{k=0} ^{N-1} X[k] \exp \left( j \frac{2\pi k n}{N} \right) \, (n = 0, \dots, N-1)$$を計算する関数を実装せよ．
 2. 1.で実装した関数を用いて 8 点の単位インパルス信号 $\delta [n] = [1, 0, 0, 0, 0, 0, 0, 0]$ の DFT を計算せよ．
 3. 2.の結果の IDFT を計算しプロットせよ．
 4. 2.の結果の振幅スペクトルおよび位相スペクトル $|X[k]|, \angle X[k] \, (k = 0, \dots, N-1)$ をプロットせよ．
