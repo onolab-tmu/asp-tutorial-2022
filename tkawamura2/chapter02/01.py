@@ -1,5 +1,5 @@
 import numpy as np
-import matplotlib.pyplot as plt
+
 
 def dft(x):
     N = len(x)
@@ -7,6 +7,7 @@ def dft(x):
     for k in range(N):
         X[k] = np.sum(x*np.exp(-2j*np.pi*k*np.arange(N)/N))
     return X
+
 
 def idft(X):
     N = len(X)
