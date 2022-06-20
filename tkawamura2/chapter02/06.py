@@ -4,12 +4,15 @@ import matplotlib.pyplot as plt
 a = 1     #振幅
 fs = 16000 #サンプリング周波数
 f = 440  #周波数
-sec = 3   #秒
+sec = 1   #秒 3→１
 
-x = np.arange(0, sec, 1/fs)
+x = np.arange(sec*fs)/fs
 y = np.sin(2*x*np.pi*f)
 
-plt.figure()
-plt.plot(x, y)
-plt.xlim([0, 0.03])
+Y = np.fft.fft(y)
+
+plt.plot(x, 20*np.log10(np.abs(Y)))
+plt.show()
+
+plt.plot(x, 20*np.log10(np.angle(Y)))
 plt.show()
