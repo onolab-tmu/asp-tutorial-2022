@@ -5,7 +5,7 @@ import wavio
 fs = 16000
 sec = 3
 fin = 660
-t = np.linspace(0., sec, int(fs * sec))
+t = np.linspace(0.0, sec, int(fs * sec))
 
 y = np.sin(2.0 * np.pi * fin * t)
 
