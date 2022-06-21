@@ -15,7 +15,7 @@ t = np.linspace(0., sec, int(fs * sec))
 
 x = np.sin(2.0 * np.pi * fin * t)
 
-whitenoise = adjust_amp(x, 6)
+whitenoise = adjust_amp(x, 20)
 mix = x + whitenoise
 
 plt.plot(t, mix)
@@ -24,7 +24,7 @@ plt.show()
 
 
 # SNR確認用コード
-# def calculate_snr(signal, noise):
-#     return 10 * np.log(np.sum(signal ** 2) / np.sum(noise ** 2))
+def calculate_snr(signal, noise):
+    return 10 * np.log(np.sum(signal ** 2) / np.sum(noise ** 2))
 
-# print(calculate_snr(x, whitenoise))
+print(calculate_snr(x, whitenoise))

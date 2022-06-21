@@ -26,6 +26,7 @@ for i in range(mix.shape[0] - 4):
     mix_filtered = np.append(mix_filtered, tmp / 5)
 
 plt.plot(t[:mix_filtered.shape[0]], mix[:mix_filtered.shape[0]], label="original")
+# plt.plot(t, mix_filtered, label="original")
 plt.plot(t[:mix_filtered.shape[0]], mix_filtered, label="filtered")
 plt.xlim(0, 0.03)
 plt.legend()
