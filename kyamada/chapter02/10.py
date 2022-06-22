@@ -2,6 +2,21 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
+def Myhamming(x):
+    """
+    My hamming window
+    Input:
+        x: input array
+    Output:
+        x: output array
+    """
+    N = len(x)
+    x = np.zeros(len(x))
+    for n in range(N):
+        x[n] = 0.54 - 0.46 * np.cos(2 * np.pi * n / (N - 1))
+    return x
+
+
 def create_sinusoid(
     fs=16000,
     f=440,
@@ -27,15 +42,14 @@ def create_sinusoid(
     return t, x
 
 
-
-
-
 if __name__ == '__main__':
     fs = 16000
     t, x = create_sinusoid(fs=fs)
-    print(int(0.003*fs))
-    plt.plot(t, x)
-    plt.xlim([0, 0.03])
-    plt.show()
+    wind = Myhamming(x)
+    x = x * wind
+    X = np.fft.fft(x)
+    x = np.fft.ifft(X)
 
     
+
+
