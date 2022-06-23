@@ -7,9 +7,9 @@ import soundfile
 A = 1.0
 sec = 3.0
 sf = 16000
-t = np.arange(0, 3, 1/sf)
+t = np.arange(0, 3, 1 / sf)
 
-white_noise = A * np.random.rand(round(sf*sec))
+white_noise = A * np.random.rand(round(sf * sec))
 
 soundfile.write(file="05py_whitenoise.wav", data=white_noise, samplerate=sf)
 

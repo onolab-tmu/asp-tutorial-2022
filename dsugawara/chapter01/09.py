@@ -6,28 +6,24 @@ import soundfile
 
 def make_noise(signal, sf, is_SNR):
     noise = np.random.randn(sf)
-    
+
     noise = noise / np.sqrt(np.sum(noise**2))
     noise = noise * np.sqrt(np.sum(signal**2))
-    noise = noise * 10**(-1*is_SNR/20)
+    noise = noise * 10 ** (-1 * is_SNR / 20)
 
     return noise
+
 
 A = 1.0
 f = 440.0
 sf = 16000
 sec = 1.0
-t = np.arange(0, sec, 1/sf)
-signal = A * np.sin(2*np.pi*f*t)
+t = np.arange(0, sec, 1 / sf)
+signal = A * np.sin(2 * np.pi * f * t)
 
 white_noise = make_noise(signal, sf, 6.0)
 
 x = signal + white_noise
 
-#print(str(len(white_noise)))
-#print(str(len(signal)))
-
-#soundfile.write(file="09py_signal.wav", data=signal, samplerate=sf)
-#soundfile.write(file="09py_noise.wav", data=white_noise, samplerate=sf)
 
 soundfile.write(file="09py_mixed.wav", data=x, samplerate=sf)

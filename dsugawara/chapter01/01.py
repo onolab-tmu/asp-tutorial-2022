@@ -9,11 +9,10 @@ f = 440.0
 sf = 16000
 sec = 3.0
 
-t = np.arange(0, sec, 1/sf)
+t = np.arange(0, sec, 1 / sf)
 
-y = A * np.sin(2*np.pi*f*t)
+y = A * np.sin(2 * np.pi * f * t)
 
 plt.xlim(0, 0.03)
 plt.plot(t, y)
-#plt.show()
 plt.savefig("01py_sin.png")

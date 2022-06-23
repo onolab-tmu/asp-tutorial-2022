@@ -10,8 +10,10 @@ f = 440.0
 sf = 16000
 sec = 3.0
 
-t = np.arange(0, sec, 1/sf)
+t = np.arange(0, sec, 1 / sf)
 
-y = A * np.sin(2*np.pi*f*t)
+y = A * np.sin(2 * np.pi * f * t)
 
-soundfile.write(file="02py_sin.wav", data=y, samplerate=sf, format="WAV", subtype='PCM_16')
+soundfile.write(
+    file="02py_sin.wav", data=y, samplerate=sf, format="WAV", subtype="PCM_16"
+)

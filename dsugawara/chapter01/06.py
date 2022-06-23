@@ -8,7 +8,7 @@ import soundfile
 y, y_samplerate = soundfile.read("02py_sin.wav")
 white_noise, white_noise_samplerate = soundfile.read("05py_whitenoise.wav")
 
-t = np.arange(0, 3, 1/y_samplerate)
+t = np.arange(0, 3, 1 / y_samplerate)
 
 y_mixed = y + white_noise
 plt.xlim(0, 0.03)

@@ -5,14 +5,14 @@ import numpy as np
 
 def culclation_SNR(s, x, n):
     i = 0
-    s2 = 0      # s[n]の2乗
-    x2 = 0      # x[n]の2乗
+    s2 = 0  # s[n]の2乗
+    x2 = 0  # x[n]の2乗
 
     while i < n:
-        s2 = s2 + s[n]**2
-        x2 = x2 + x[n]**2
-        i+=1
+        s2 = s2 + s[n] ** 2
+        x2 = x2 + x[n] ** 2
+        i += 1
 
-    SNR = 10 * np.log10(s2/x2)
+    SNR = 10 * np.log10(s2 / x2)
 
     return SNR
