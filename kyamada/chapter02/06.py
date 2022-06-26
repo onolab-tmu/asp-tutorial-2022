@@ -36,6 +36,7 @@ if __name__ == '__main__':
     X_amp = 20 * np.log10(np.abs(X))
     X_phase = 20 * np.log10(np.angle(X))
 
+
     plt.subplot(2, 1, 1)
     plt.stem(X_amp)
     plt.grid()
@@ -44,4 +45,5 @@ if __name__ == '__main__':
     plt.stem(X_phase)
     plt.grid()
     plt.title("Phase")
+    plt.tight_layout()
     plt.show()

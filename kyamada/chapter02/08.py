@@ -49,9 +49,11 @@ if __name__ == '__main__':
     Win = np.fft.fft(win)
     X = np.fft.fft(x)
 
-    x = np.pad(X, [X.size//2, X.size//2-1])
+    #x = np.pad(X, [X.size//2, X.size//2-1])
 
-    x_win = np.fft.ifft(np.convolve(X, Win, mode="valid"))
+    #x_win = np.fft.ifft(np.convolve(X, Win, mode="valid"))
 
-    plt.plot(x_win.real)
+    # plt.plot(x_win.real)
+    x_wnd = X * Win
+    plt.plot(x_wnd)
     plt.show()

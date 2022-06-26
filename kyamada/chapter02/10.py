@@ -45,11 +45,15 @@ def create_sinusoid(
 if __name__ == '__main__':
     fs = 16000
     t, x = create_sinusoid(fs=fs)
-    wind = Myhamming(x)
-    x = x * wind
+    win = Myhamming(x)
+    x = x * win
     X = np.fft.fft(x)
-    x = np.fft.ifft(X)
+    Win = np.fft.fft(win)
 
-    
+    X = np.pad(X, (X.size // 2, X.size // 2 - 1))
 
+    x_win = np.fft.ifft(np.convolve(X, Win, mode="valid"))
 
+    plt.plot(x_win.real)
+    plt.grid()
+    plt.show()
