@@ -27,15 +27,23 @@ def create_sinusoid(
     return t, x
 
 
-
-
-
 if __name__ == '__main__':
     fs = 16000
     t, x = create_sinusoid(fs=fs)
-    print(int(0.003*fs))
-    plt.plot(t, x)
-    plt.xlim([0, 0.03])
-    plt.show()
 
-    
+    X = np.fft.fft(x)
+
+    X_amp = 20 * np.log10(np.abs(X))
+    X_phase = 20 * np.log10(np.angle(X))
+
+
+    plt.subplot(2, 1, 1)
+    plt.stem(X_amp)
+    plt.grid()
+    plt.title("Amplitude")
+    plt.subplot(2, 1, 2)
+    plt.stem(X_phase)
+    plt.grid()
+    plt.title("Phase")
+    plt.tight_layout()
+    plt.show()
