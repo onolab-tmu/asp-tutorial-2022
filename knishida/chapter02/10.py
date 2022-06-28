@@ -8,6 +8,15 @@ def Hamming(N):
     return win
 
 
+def circular_convolution(x, h):
+    N = len(x)
+    z = np.zeros(N)
+    for n in range(N):
+        for k in range(N):
+            z[n] += x[k] * h[(n - k) % N]
+    return z
+
+
 if __name__ == "__main__":
     A = 1
     f = 440.0
@@ -26,7 +35,7 @@ if __name__ == "__main__":
 
     N = len(y)
     n = np.arange(N)
-    Z = np.zeros(N)
+    Z = np.zeros(N, dtype="complex")
 
     for k in range(N):
         Z[k] = np.sum(X[n] * Y[(k - n) % N])
