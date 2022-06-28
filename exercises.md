@@ -106,6 +106,24 @@
 
 # 参考文献
 
-- 飯國: 基礎から学ぶ信号処理, 培風館, 2004.
-- 貴家: ディジタル信号処理のエッセンス, オーム社, 2014.
-- 阿部, 八巻, 川又: Python 対応 ディジタル信号処理, 森北出版, 2021.
+## 書籍
+
+- [浅野: 音のアレイ信号処理, コロナ社, 2011.](https://www.coronasha.co.jp/np/isbn/9784339011166/)
+- [貴家: ディジタル信号処理のエッセンス, オーム社, 2014.](https://www.ohmsha.co.jp/book/9784274216060/)
+- [田中: 信号・データ処理のための行列とベクトル, コロナ社, 2019.](https://www.coronasha.co.jp/np/isbn/9784339014013/)
+- [戸上: Python で学ぶ音源分離, インプレス, 2020.](https://book.impress.co.jp/books/1119101154)
+- [阿部, 八巻, 川又: Python 対応 ディジタル信号処理, 森北出版, 2021.](https://www.morikita.co.jp/books/mid/077661)
+- [川村: 音声音響信号処理の基礎と実践, コロナ社, 2021.](https://www.coronasha.co.jp/np/isbn/9784339014020/)
+- [高島: Python で学ぶ音声認識, インプレス, 2021.](https://book.impress.co.jp/books/1120101083)
+- [森勢: ひたすら楽して音響信号解析, コロナ社, 2021.](https://www.coronasha.co.jp/np/isbn/9784339009392/)
+- [山本, 高道: Python で学ぶ音声合成, インプレス, 2021.](https://book.impress.co.jp/books/1120101073)
+
+## 解説記事
+
+- [小野: 短時間フーリエ変換の基礎と応用, 日本音響学会誌, 2016.](https://doi.org/10.20697/jasj.72.12_764)
+
+## Webs サイト
+
+- [香川高専 北村 大地 講師 ホームページ](http://d-kitamura.net/codes.html)
+- [やる夫で学ぶディジタル信号処理](http://www.ic.is.tohoku.ac.jp/~swk/lecture/yaruodsp/main.html)
+- [Python で音声信号処理 - 人工知能に関する断創録](https://aidiary.hatenablog.com/entry/20110514/1305377659)
