@@ -57,11 +57,6 @@
 
 ![progress](progress.png)
 
-## 参考リンク
-
-- [言語処理100本ノックを解き始める前に.md](https://gist.github.com/reiyw/9155edf600e85417e82d2e4e4bc9e637)
-  - Linux コマンドや python の参考になるリンクがまとまっています
-
 ## 謝辞
 
 [小町研究室](https://github.com/tmu-nlp)のいくつかのリポジトリを参考にしました．
