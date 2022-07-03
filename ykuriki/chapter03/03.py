@@ -15,11 +15,9 @@ def circul_conv_pad(x, h):
     """
     x_size = len(x)
     h_size = len(h)
-    y_size = x_size + h_size - 1
 
     X = np.fft.fft(np.block([x, np.zeros(h_size)]))
     H = np.fft.fft(np.block([h, np.zeros(x_size)]))
     y = np.fft.ifft(X * H)
-    y = y[:y_size]
 
-    return y
+    return y[:-1]
