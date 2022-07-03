@@ -27,6 +27,9 @@ def create_sinusoid(
     return t, x
 
 
+
+
+
 if __name__ == '__main__':
     fs = 16000
     t, x = create_sinusoid(fs=fs)
@@ -35,6 +38,4 @@ if __name__ == '__main__':
     plt.xlim([0, 0.03])
     plt.show()
 
-    x_lim = np.linspace(0, 3, int(1/fs)) # これ確か怪しい
-    x_ara = np.arange(0, 3, 1/fs)
-    print(x_lim.shape, x_ara.shape)
+    
