@@ -60,8 +60,8 @@
 6. **ISTFT の実装**: シフト幅 $S$ および $F\times T$ の複素数行列 $X[f, t]$ $(f = 0, \dots, F-1,\quad t = 0, \dots, T-1)$ を入力とし，下記の手順で $M$ 点の信号 $\hat{x}[n]$ を出力する関数を実装せよ．
    1. 窓幅 $N$ を計算および出力信号の長さ $M$ を計算: $N \gets 2 (F - 1)$, $M \gets S (T - 1) + N$
    2. 出力信号を初期化: $\hat{x}[m] = 0 \quad \forall m$
-   3. 各フレーム $t$ について逆 DFT を計算: $z_t[n] \gets \mathcal{F}^{-1}(X[t, 0], \dots, X[t, F-1])[n]$ $(n = 0, \dots, N-1)$
-      ただし， $\mathcal{F}^{-1}(X[t, 0], \dots, X[t, F-1])[n]$ は $F$ 点の複素数値信号 $X[t, 0], \dots, X[t, F-1]$ を逆 DFT した結果の $n$ 番目の要素を表す．逆 DFT には `np.fft.irfft` 関数を使用すること．これにより， $z[n]$ の点数は $N = 2(F-1)$ となることに注意せよ．
+   3. 各フレーム $t$ について逆 DFT を計算: $z_t[n] \gets \mathcal{F}^{-1}(X[0, t], \dots, X[F-1, t])[n]$ $(n = 0, \dots, N-1)$
+      ただし，右辺は $F$ 点の複素数値信号 $X[0, t], \dots, X[F-1, t]$ を逆 DFT した結果の $n$ 番目の要素を表す．逆 DFT には `np.fft.irfft` 関数を使用すること．これにより， $z[n]$ の点数は $N = 2(F-1)$ となることに注意せよ．
    4. Overlap add の計算: $\hat{x}[t S + n] = \hat{x}[t S + n] + w_\mathrm{s}[n] z_t[n]$
       ただし， $w_\mathrm{s}[n]$ は 5.で計算される最適合成窓， $z_t[n]$は上で計算した逆 DFT である．
 7. **ISTFT の確認**: 6.で実装した関数を用いて，4.の結果の逆短時間フーリエ変換を計算し結果をプロットせよ．
