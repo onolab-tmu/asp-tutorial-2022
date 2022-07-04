@@ -2,25 +2,16 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-def calculate_difference(x):
-    z = []
-    for n in range(len(x)):
-        sum = 0
-        for k in range(5):
-            if n - k < 0:
-                sum += 0
-            else:
-                sum += x[n - k]
-        z = np.append(z, sum)
-    return z
-
-
 if __name__ == "__main__":
     x = np.array([1, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-    z = calculate_difference(x)
+    N = len(x)
+    y = np.zeros(N)
 
-    fig, ax = plt.subplots(nrows=2, ncols=1)
-    ax[0].stem(x)
-    ax[1].stem(z)
+    for n in range(N):
+        for k in range(5):
+            if (k <= n) and (n - k <= 4):
+                y[n] = 0.2 * x[n - k]
+
+    plt.stem(y)
     plt.tight_layout()
     plt.show()
