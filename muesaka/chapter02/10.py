@@ -8,6 +8,16 @@ def hamming(N):
     return w
 
 
+def circular_convolution(x, y):
+    N = max(len(x), len(y))
+    n = np.arange(N)
+    z = np.zeros(N, dtype="complex")
+
+    for k in range(N):
+        z[k] = np.sum(x[n] * y[(k - n) % N])
+    return z / N
+
+
 if __name__ == "__main__":
     a = 1.0  # 振幅
     sec = 3  # 信号長
@@ -19,12 +29,12 @@ if __name__ == "__main__":
     window = hamming(len(signal))
     x = np.fft.fft(signal)
     y = np.fft.fft(window)
-    x = np.pad(x, [len(x) // 2, len(x) // 2 - 1])
-    z = np.convolve(x, y, "valid")
+    z = circular_convolution(x, y)
     idft_z = np.fft.ifft(z)
+    window_signal = window * signal
 
-    plt.plot(t, idft_z.real)
-    plt.xlabel("time")
-    plt.ylabel("amplitude")
+    fig, ax = plt.subplots(nrows=2, ncols=1)
+    ax[0].plot(idft_z.real)
+    ax[1].plot(window_signal)
     plt.tight_layout()
     plt.show()
