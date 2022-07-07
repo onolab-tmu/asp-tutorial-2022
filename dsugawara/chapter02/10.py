@@ -31,12 +31,15 @@ dft_win = np.fft.fft(win)
 
 
 # 畳み込み
+N = len(y)
+n = np.arange(0, N)
+Z = np.empty(0)
 dft_y = np.pad(dft_y, [int(len(dft_y) / 2), int(len(dft_y) / 2 - 1)])
-conv = np.convolve(dft_y, dft_win, "valid")
+for k in range(0, N):
+    temp = np.sum(dft_y[n] * dft_win[(k - n) % N])
+    Z = np.append(Z, temp)
 
-idft_conv = np.fft.ifft(conv)
+idft_z = np.fft.ifft(Z)
 
-
-# plot
-plt.plot(t, idft_conv.real)
-plt.savefig("10py_convolution")
+plt.plot(t, idft_z)
+plt.savefig("10py_circle_convolution.png")
