@@ -98,7 +98,7 @@
    d. 各周波数ごとに $Y[f,t] = \boldsymbol{w}_{f}^{\mathsf{H}} \boldsymbol{x}_{ft}$ として強調信号を求める．
    d. $Y[f,t]$ を逆 STFT する．
 8. **ビームパターン**: 周波数領域におけるビームフォーマのフィルタ $\boldsymbol{w}_f \quad (f = 0, \dots, F-1)$ ，マイクアレイの座標 $\boldsymbol{p}_m \quad (m = 1, \dots, M)$，サンプリング周波数 $f_s$ を入力とし，次の手順でビームパターンを描画する関数を実装せよ．これを用いて，1.の直線状アレイにおける遅延和ビームフォーマのビームパターンをプロットせよ．
-   a. 角度 $\theta = 0, \dots, 360$ [deg] および周波数 $f = \frac{f_s / 2}{F-1} 0, \dots, \frac{f_s / 2}{F-1}$ について 3.でアレイマニフォールドベクトル $\boldsymbol{a}_{f}(\theta)$ を計算する．
+   a. 角度 $\theta = 0, \dots, 360$ [deg] および周波数 $f = \frac{f_s / 2}{F-1} 0, \dots, \frac{f_s / 2}{F-1} F$ について 3.でアレイマニフォールドベクトル $\boldsymbol{a}_{f}(\theta)$ を計算する．
    b. 角度 $\theta = 0, \dots, 360$ [deg] について $\Psi (f, \theta) = \boldsymbol{w}_{f}^{\mathsf{H}} \boldsymbol{a}_{f} (\theta)$ を計算する．
    c. 横軸を角度，縦軸を周波数として $20 \log _{10} \lvert \Psi (f, \theta) \rvert$ をカラーバーでプロットする．
 9. **空間サンプリング定理**: 空間的エイリアシングを避けるためにはマイク間隔 $d$ を $d \leq \frac{c}{2f}$ となるように選ぶ必要がある．ここで， $c$ [m/s] は音速，$f$ [Hz] は周波数である．8.で実装した関数を用いて，マイク間隔を 2 [cm], 5 [cm], 10 [cm] と変化させながら 1.で求めた直線状アレイのビームパターンをプロットし，結果を確認せよ．
