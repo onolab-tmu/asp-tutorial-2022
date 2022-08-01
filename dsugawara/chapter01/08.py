@@ -3,8 +3,8 @@
 import numpy as np
 
 
-def make_noise(signal, is_SNR, sf):
-    noise = np.random.rand(signal.shape)
+def make_noise(signal, is_SNR):
+    noise = np.random.randn(sf, 1)
 
     noise = noise / np.sqrt(np.sum(noise**2))
     noise = noise * np.sqrt(np.sum(signal**2))

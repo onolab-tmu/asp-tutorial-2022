@@ -4,8 +4,8 @@ import numpy as np
 import soundfile
 
 
-def make_noise(signal, is_SNR):
-    noise = np.random.rand(len(signal))
+def make_noise(signal, sf, is_SNR):
+    noise = np.random.randn(sf)
 
     noise = noise / np.sqrt(np.sum(noise**2))
     noise = noise * np.sqrt(np.sum(signal**2))
@@ -21,7 +21,7 @@ sec = 1.0
 t = np.arange(0, sec, 1 / sf)
 signal = A * np.sin(2 * np.pi * f * t)
 
-white_noise = make_noise(signal, 6.0)
+white_noise = make_noise(signal, sf, 6.0)
 
 x = signal + white_noise
 
