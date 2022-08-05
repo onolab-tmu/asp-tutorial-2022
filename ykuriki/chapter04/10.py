@@ -68,23 +68,24 @@ def clc_stft(x, w, L, S):
     return X.T
 
 
-def clc_axis(fs, L, S, T):
+def clc_axis(X, fs, S):
     """縦軸を周波数，横軸を時間に変換する
 
     Args:
+        X (ndarray): スペクトログラム
         fs (int): サンプリング周波数
-        L (int): 窓幅
         S (int): シフト幅
-        T (int): フレーム数
 
     Returns:
         freq (ndarray): 縦軸（周波数）
         time (ndarray): 横軸（時間）
 
     """
-    F = L // 2 + 1
+    F = len(X)
+    T = len(X[0])
+    L = (F - 1) * 2
     freq = np.arange(F + 1) / F * fs / 2
-    time = np.arange(T + 1) * S / fs
+    time = (np.arange(T + 1) * S - (L - S)) / fs
 
     return freq, time
 
@@ -101,8 +102,8 @@ x = r * np.sin(f * 2 * np.pi * t)
 w = np.hamming(L)
 
 X = clc_stft(x, w, L, S)
-freq, time = clc_axis(fs, L, S, X.shape[1])
-print(len(freq), len(time))
+
+freq, time = clc_axis(X, fs, S)
 
 
 # プロット
@@ -110,14 +111,10 @@ fig, ax = plt.subplots(nrows=2, ncols=1, figsize=(6, 5))
 
 p0 = ax[0].pcolormesh(time, freq, np.abs(X))
 ax[0].set_xticks(time)
-ax[0].set_xlabel("time [s]")
-ax[0].set_ylabel("frequency [Hz]")
 ax[0].set_title("Amplitude spectrum")
 
 p1 = ax[1].pcolormesh(time, freq, np.angle(X))
 ax[1].set_xticks(time)
-ax[1].set_xlabel("time [s]")
-ax[1].set_ylabel("frequency[Hz]")
 ax[1].set_title("Phase spectrum")
 
 plt.tight_layout()

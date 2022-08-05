@@ -36,9 +36,7 @@ def frame_div(x, L, S):
 
     """
     x = zero_pad(x, L, S)
-    print(len(x))
     T = int(np.floor((len(x) - L) / S)) + 1
-    print(T)
     xt = np.zeros((T, L))
 
     for t in range(T):
@@ -62,7 +60,7 @@ def clc_stft(x, w, L, S):
     """
     x = frame_div(x, L, S)
     T = len(x)
-    X = np.zeros((T, L//2+1), dtype="complex")
+    X = np.zeros((T, L // 2 + 1), dtype="complex")
 
     for t in range(T):
         X[t] = np.fft.rfft(x[t] * w)
