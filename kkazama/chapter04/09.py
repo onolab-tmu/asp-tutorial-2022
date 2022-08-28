@@ -1,5 +1,6 @@
 import numpy as np
 from matplotlib import pyplot as plt
+import scipy.signal as sp
 
 # ゼロ詰め
 def zero_pad(x, L, S):
@@ -37,13 +38,13 @@ def sig_stft(x, L, S):
 
 
 A = 1
-f = 440
+f = 100
 fs = 16000
 sec = 1
 
 t = np.arange(0, sec * fs) / fs
 
-x = A * np.sin(2 * np.pi * f * t)
+x = sp.chirp(t, f, sec, fs)
 
 L = np.array([100, 200, 400, 800])
 

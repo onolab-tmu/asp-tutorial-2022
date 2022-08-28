@@ -36,6 +36,15 @@ def sig_stft(x, L, S):
     return X
 
 
+def convert_axis(X, fs, S):
+    F = X.shape[0]
+    T = X.shape[1]
+    F_d = np.arange(F + 1) / F * fs / 2
+    T_d = np.arange(T + 1) * S / fs
+
+    return F_d, T_d
+
+
 A = 1
 f = 440
 fs = 16000
@@ -44,16 +53,20 @@ t = np.arange(0, sec, 1 / fs)
 
 x = A * np.sin(2 * np.pi * f * t)
 
-L = 1000
-S = 500
+L = 1000  # 窓幅
+S = 500  # シフト長
 
 Xk = sig_stft(x, L, S)
 
 # a.shape[0] = num of row, a.shape[1] = num of col
-X, Y = np.mgrid[: Xk.shape[1] + 1, : Xk.shape[0] + 1]
-fig, ax = plt.subplots(figsize=(5, 5))
+f_d, t_d = convert_axis(Xk, fs, S)
+fig, ax = plt.subplots(nrows=2, ncols=1, figsize=(6, 5))
 
-ax.pcolormesh(X, Y, 20 * np.log10(np.abs(Xk)).T)
-ax.xticks([])
+ax[0].pcolormesh(t_d, f_d, np.abs(Xk))
+ax[0].set_xticks(t_d)
+
+ax[1].pcolormesh(t_d, f_d, np.angle(Xk))
+ax[1].set_xticks(t_d)
+
 
 plt.show()
