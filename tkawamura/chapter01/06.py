@@ -1,3 +1,5 @@
+# SN比: 信号長の等しい2個の信号 s[n], x[n] (n = 0, ..., N-1)の信号対雑音比 (SN比) を計算する関数を実装せよ．
+
 # from .01 import make_sin_wave  # invalid syntax
 import numpy as np
 
